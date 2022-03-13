@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Приложение запрашивает доступ к геопозиции</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Приложение запрашивает доступ к геопозиции</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FiraCode-Regular.ttf</string>

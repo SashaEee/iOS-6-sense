@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "кнопка возврата на главное меню.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "кнопка возврата на главное меню-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "кнопка возврата на главное меню-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

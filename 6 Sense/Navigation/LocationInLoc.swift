@@ -22,7 +22,7 @@ class LocationInLocView: UIViewController {
 
     override func viewDidLoad() {
         addButton()
-        buttonsStack.spacing = 30
+        buttonsStack.spacing = 30        
         let insets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
         scrollView.contentInset = insets
         scrollView.scrollIndicatorInsets = insets
@@ -33,6 +33,7 @@ class LocationInLocView: UIViewController {
     
     @IBAction func buttonAction(sender: UIButton!) {
         print("Button tapped with tag \(sender.tag)")
+        endBeaconText = (sender.titleLabel?.text)!
         infoButtonInLoc = sender.tag
         openView(id: "beaconNavigate")
     }
@@ -67,6 +68,9 @@ class LocationInLocView: UIViewController {
                 button.contentVerticalAlignment = .center
                 button.titleLabel?.font = UIFont(name: "Fira Code Regular", size: 61)
                 button.layer.cornerRadius = 5
+                button.titleLabel?.numberOfLines = 2
+                button.titleLabel?.textAlignment = .center
+                button.heightAnchor.constraint(equalToConstant: 135).isActive = true
 //                button.frame.size.height = 200.0
 //                button.frame.size.width = 200.0
                 button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -79,5 +83,13 @@ class LocationInLocView: UIViewController {
         }
 
     }
+    @IBAction func exit(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(identifier: "menu")
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.modalTransitionStyle = .crossDissolve
+        self.present(nextVC, animated: true, completion: nil)
+    }
+
     
 }

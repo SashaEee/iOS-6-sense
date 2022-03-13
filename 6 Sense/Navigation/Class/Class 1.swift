@@ -11,11 +11,11 @@ import SwiftyJSON
 class BeaconName : NSObject, NSCoding{
 
     var azimuth : AnyObject!
-    var edges : [Edge]!
+    var edges : [EdgeClass]!
     var id : Int!
     var isOldTurns : Bool!
     var name : String!
-    var nodes : [Node]!
+    var nodes : [NodeClass]!
     var text : AnyObject!
 
 
@@ -27,19 +27,19 @@ class BeaconName : NSObject, NSCoding{
             return
         }
         azimuth = json["azimuth"].stringValue as AnyObject
-        edges = [Edge]()
+        edges = [EdgeClass]()
         let edgesArray = json["edges"].arrayValue
         for edgesJson in edgesArray{
-            let value = Edge(fromJson: edgesJson)
+            let value = EdgeClass(fromJson: edgesJson)
             edges.append(value)
         }
         id = json["id"].intValue
         isOldTurns = json["is_old_turns"].boolValue
         name = json["name"].stringValue
-        nodes = [Node]()
+        nodes = [NodeClass]()
         let nodesArray = json["nodes"].arrayValue
         for nodesJson in nodesArray{
-            let value = Node(fromJson: nodesJson)
+            let value = NodeClass(fromJson: nodesJson)
             nodes.append(value)
         }
         text = json["text"].stringValue as AnyObject
@@ -90,11 +90,11 @@ class BeaconName : NSObject, NSCoding{
     @objc required init(coder aDecoder: NSCoder)
     {
          azimuth = aDecoder.decodeObject(forKey: "azimuth") as? AnyObject
-         edges = aDecoder.decodeObject(forKey: "edges") as? [Edge]
+         edges = aDecoder.decodeObject(forKey: "edges") as? [EdgeClass]
          id = aDecoder.decodeObject(forKey: "id") as? Int
          isOldTurns = aDecoder.decodeObject(forKey: "is_old_turns") as? Bool
          name = aDecoder.decodeObject(forKey: "name") as? String
-         nodes = aDecoder.decodeObject(forKey: "nodes") as? [Node]
+         nodes = aDecoder.decodeObject(forKey: "nodes") as? [NodeClass]
          text = aDecoder.decodeObject(forKey: "text") as? AnyObject
 
     }
@@ -133,7 +133,7 @@ class BeaconName : NSObject, NSCoding{
 
 
 
-class Node : NSObject, NSCoding{
+class NodeClass : NSObject, NSCoding{
 
     var beacon : BeaconInfo!
     var coordinateX : Int!
@@ -268,7 +268,7 @@ class Node : NSObject, NSCoding{
 
 }
 
-class Edge : NSObject, NSCoding{
+class EdgeClass : NSObject, NSCoding{
 
     var start : Int!
     var stop : Int!

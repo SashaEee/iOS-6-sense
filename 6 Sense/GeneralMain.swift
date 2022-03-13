@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
         settingsButton.addShadow()
         aboutUsButton.addShadow()
     }
+
     
 }
 extension UIView {
@@ -36,4 +37,5 @@ extension UIView {
       self.layer.shadowOpacity = 0.5
   }
 }
+
 

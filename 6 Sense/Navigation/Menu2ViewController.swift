@@ -9,9 +9,7 @@ import UIKit
 
 class Menu2ViewController: UIViewController {
     @IBOutlet weak var locationButton: UIButton!
-    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
-    @IBOutlet weak var huynyaView: UIView!
     override func viewDidLoad() {
         designButton()
         super.viewDidLoad()
@@ -20,20 +18,14 @@ class Menu2ViewController: UIViewController {
     }
     func designButton(){
         locationButton.addShadow()
-        searchButton.addShadow()
         finishButton.addShadow()
-        huynyaView.addShadow()
+    }
+    @IBAction func exit(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(identifier: "menu")
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.modalTransitionStyle = .crossDissolve
+        self.present(nextVC, animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

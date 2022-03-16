@@ -103,13 +103,13 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     func startScanning() {
-        let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //01122334-4556-6778-899A-ABBCCDDEEFF0
+        let uuid = UUID(uuidString: "01122334-4556-6778-899A-ABBCCDDEEFF0")! //01122334-4556-6778-899A-ABBCCDDEEFF0
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(in: beaconRegion)
     }
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //01122334-4556-6778-899A-ABBCCDDEEFF0
+        let uuid = UUID(uuidString: "01122334-4556-6778-899A-ABBCCDDEEFF0")! //01122334-4556-6778-899A-ABBCCDDEEFF0
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
         if beacons.count > 0 {
             let macString = generateMac(major: Int32(beacons[0].major.uint32Value), minor: Int32(beacons[0].minor.uint32Value)) //генерируем Mac-адрес метки
@@ -123,6 +123,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
 //            updateDistance(.unknown)
         }
     }
+    
     func SearchInJSON(macLoc: String) -> String {
         var namePlace = ""
         for index in JSON1!.array!.startIndex...JSON1!.array!.endIndex - 1 {
@@ -148,14 +149,19 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         func generateMac(major: Int32, minor: Int32) -> String{
             print(major)
             print(minor)
-            let a = Array(String(major, radix: 16).uppercased())
+            var a = Array(String(major, radix: 16).uppercased())
             var b = Array(String(minor, radix: 16).uppercased())
-            if b.endIndex == 2{
-                for i in b.startIndex...b.endIndex-1{
-                    b[i+1] = b[i]
-                }
-                b[0] = "0"
-                print(b)
+            print(b.count)
+            print(a.count)
+            while(b.count != 4){
+                var num = 0
+                b.insert("0", at: num)
+                num += 1
+            }
+            while(a.count != 4){
+                var num = 0
+                a.insert("0", at: num)
+                num += 1
             }
             let Str = "\(a[0])" + "\(a[1])" + ":" + "\(a[2])" + "\(a[3])" + ":" + "\(b[0])" + "\(b[1])" + ":" + "\(b[2])" + "\(b[3])"
             return Str

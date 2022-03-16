@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45351A7A27BFDF0700A5179C /* Class 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45351A7927BFDF0600A5179C /* Class 1.swift */; };
+		455308A527E1DF5F00F0ED6F /* InstrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455308A427E1DF5F00F0ED6F /* InstrViewController.swift */; };
 		457851AD2758247D00BFF46D /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 457851AC2758247D00BFF46D /* FiraCode-Regular.ttf */; };
 		457851B027582A1200BFF46D /* GeneralMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457851AF27582A1200BFF46D /* GeneralMain.swift */; };
 		457851B2275846A300BFF46D /* Menu2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457851B1275846A300BFF46D /* Menu2ViewController.swift */; };
@@ -41,6 +42,7 @@
 		45351A7927BFDF0600A5179C /* Class 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class 1.swift"; sourceTree = "<group>"; };
 		4537171E27D1E04100ED881A /* CoreGraph */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoreGraph; path = "../Downloads/CoreGraph-master/CoreGraph"; sourceTree = "<group>"; };
 		4537175A27D1E49B00ED881A /* CoreGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		455308A427E1DF5F00F0ED6F /* InstrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstrViewController.swift; path = "6 Sense/Instruction/InstrViewController.swift"; sourceTree = SOURCE_ROOT; };
 		457851AC2758247D00BFF46D /* FiraCode-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Regular.ttf"; sourceTree = "<group>"; };
 		457851AF27582A1200BFF46D /* GeneralMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMain.swift; sourceTree = "<group>"; };
 		457851B1275846A300BFF46D /* Menu2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu2ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		457D8BAB27CA5CDC004FD7C9 /* Instruction */ = {
 			isa = PBXGroup;
 			children = (
+				455308A427E1DF5F00F0ED6F /* InstrViewController.swift */,
 			);
 			path = Instruction;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				459CB04B27D1EA5300511107 /* Result.swift in Sources */,
 				459CB04427D1EA5300511107 /* Graph.swift in Sources */,
 				45A3A90B27C79C5A00A9D9F8 /* LocationInLoc.swift in Sources */,
+				455308A527E1DF5F00F0ED6F /* InstrViewController.swift in Sources */,
 				45A0EC5B27CA4C9B00EAF03D /* BeaconNavigateViewController.swift in Sources */,
 				45351A7A27BFDF0700A5179C /* Class 1.swift in Sources */,
 				458AB88526CD501700B265DB /* Speak.swift in Sources */,

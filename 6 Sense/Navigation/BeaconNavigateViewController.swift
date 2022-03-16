@@ -55,7 +55,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
         }
     }
     func startScanning() {
-        let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //01122334-4556-6778-899A-ABBCCDDEEFF0 //01122334-4556-6778-899A-ABBCCDDEEFF0
+        let uuid = UUID(uuidString: "01122334-4556-6778-899A-ABBCCDDEEFF0")! //a196c876-de8c-4c47-ab5a-d7afd5ae7127 //01122334-4556-6778-899A-ABBCCDDEEFF0 //00000000-0000-0000-0000-000000000000
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(in: beaconRegion)
@@ -71,6 +71,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
                 print(macString)
             }
             print(beacons)
+            print("Ближайшая \(beacons.first!)")
         } else {
             updateDistance(.unknown)
         }
@@ -86,8 +87,22 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
     }
     
         func generateMac(major: Int32, minor: Int32) -> String{
-            let a = Array(String(major, radix: 16).uppercased())
-            let b = Array(String(minor, radix: 16).uppercased())
+            print(major)
+            print(minor)
+            var a = Array(String(major, radix: 16).uppercased())
+            var b = Array(String(minor, radix: 16).uppercased())
+            print(b.count)
+            print(a.count)
+            while(b.count != 4){
+                var num = 0
+                b.insert("0", at: num)
+                num += 1
+            }
+            while(a.count != 4){
+                var num = 0
+                a.insert("0", at: num)
+                num += 1
+            }
             let Str = "\(a[0])" + "\(a[1])" + ":" + "\(a[2])" + "\(a[3])" + ":" + "\(b[0])" + "\(b[1])" + ":" + "\(b[2])" + "\(b[3])"
             return Str
         }
@@ -123,8 +138,6 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
                 FindRoad()
             }
         }
-        
-        
     }
 
     func updateDistance(_ distance: CLProximity) {

@@ -48,7 +48,7 @@
                                                     </attributedString>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="G4m-xO-rgc" kind="show" id="vaW-YE-3Lj"/>
+                                                    <segue destination="K2d-HA-CgK" kind="show" id="Gol-5g-UWY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-DB-Eob">
@@ -708,45 +708,95 @@
             <point key="canvasLocation" x="3096" y="808"/>
         </scene>
         <!--Главное меню-->
-        <scene sceneID="OyK-Ch-OlC">
+        <scene sceneID="uaC-er-UbO">
             <objects>
-                <viewController title="Главное меню" id="G4m-xO-rgc" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hck-00-hOU">
+                <viewController title="Главное меню" id="K2d-HA-CgK" customClass="InstrViewController" customModule="__Sense" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9AH-A3-rAK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1G-u3-t21">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAl-4a-qaW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИНСТРУКЦИЯ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8l-Cn-bCd">
+                                        <rect key="frame" x="0.0" y="63" width="414" height="87"/>
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="64"/>
+                                        <color key="textColor" red="1" green="1" blue="0.99999994039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.46688222889999997" green="0.47051310540000002" blue="0.51959830520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="T8l-Cn-bCd" firstAttribute="leading" secondItem="lAl-4a-qaW" secondAttribute="leading" id="EwB-IL-d3T"/>
+                                    <constraint firstAttribute="trailing" secondItem="T8l-Cn-bCd" secondAttribute="trailing" id="FHo-gj-TRf"/>
+                                    <constraint firstAttribute="height" constant="150" id="HVO-lQ-9t1"/>
+                                    <constraint firstAttribute="bottom" secondItem="T8l-Cn-bCd" secondAttribute="bottom" id="vLA-b8-mL4"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usb-g0-MRT">
                                 <rect key="frame" x="0.0" y="786" width="414" height="110"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="кнопка возврата на главное меню" translatesAutoresizingMaskIntoConstraints="NO" id="6ok-1U-DRe">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="кнопка возврата на главное меню" translatesAutoresizingMaskIntoConstraints="NO" id="TDx-uf-xKH">
                                         <rect key="frame" x="162" y="10" width="90" height="90"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="UA8-O3-8LV"/>
-                                            <constraint firstAttribute="height" constant="90" id="WQR-lH-Xdg"/>
+                                            <constraint firstAttribute="height" constant="90" id="XUQ-cm-ZYI"/>
+                                            <constraint firstAttribute="width" constant="90" id="wKe-qq-9rN"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.46688222889999997" green="0.47051310540000002" blue="0.51959830520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="Pcb-gP-p4y"/>
-                                    <constraint firstItem="6ok-1U-DRe" firstAttribute="centerY" secondItem="J1G-u3-t21" secondAttribute="centerY" id="cYe-Fl-wMu"/>
-                                    <constraint firstItem="6ok-1U-DRe" firstAttribute="centerX" secondItem="J1G-u3-t21" secondAttribute="centerX" id="cg5-ki-Wiz"/>
+                                    <constraint firstItem="TDx-uf-xKH" firstAttribute="centerX" secondItem="Usb-g0-MRT" secondAttribute="centerX" id="5Jm-iW-oui"/>
+                                    <constraint firstAttribute="height" constant="110" id="Nj9-3b-DJh"/>
+                                    <constraint firstItem="TDx-uf-xKH" firstAttribute="centerY" secondItem="Usb-g0-MRT" secondAttribute="centerY" id="SH9-EV-azd"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJP-lx-tuQ">
+                                <rect key="frame" x="0.0" y="150" width="414" height="628"/>
+                                <mutableString key="text">Первое сообщение из 6.При открытии приложения вы попадаете в главное меню, от сюда вы можете прослушать эту инструкцию, перейти к навигации или открыть настройки. 
+
+Второе сообщение из 6.Для первого использования системы на любом объекте необходимо соединение с интернет, для дальнейшего использования соединение необязательно.
+
+Третье сообщение из 6.Если вы откроете меню навигации недалеко от объекта, оборудованного нашей системой, то в течение нескольких секунд ваше местоположение будет автоматически определено, о чем будет свидетельствовать надпись на первой кнопке на экране, далее вам нужно выбрать пункт назначения в соответствующем меню, кнопка для его вызова располагается следом за кнопкой выбора локации. После выбора пункта назначения, остаётся нажать кнопку "найти маршрут" и ждать голосовых подсказок.
+
+Четвертое сообщение из 6.В приложении предусмотрена функция прогулки, когда вы будете находиться в меню выбора маршрута, приложение будет сообщать вам ваше местоположение.
+
+Пятое сообщение из 6.В меню настроек вы можете регулировать скорость речи.
+
+Шестое сообщение из 6. Для выхода из любого меню воспользуйтесь стандартной кнопкой "назад"</mutableString>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="31"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="jLb-Gs-0VX"/>
+                        <viewLayoutGuide key="safeArea" id="R4J-Nb-1o8"/>
                         <color key="backgroundColor" red="0.85932228960000001" green="0.85932228960000001" blue="0.85932228960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="J1G-u3-t21" secondAttribute="bottom" id="7xz-rW-zh8"/>
-                            <constraint firstItem="J1G-u3-t21" firstAttribute="leading" secondItem="jLb-Gs-0VX" secondAttribute="leading" id="8xB-Hq-AoG"/>
-                            <constraint firstItem="J1G-u3-t21" firstAttribute="trailing" secondItem="jLb-Gs-0VX" secondAttribute="trailing" id="yhF-2B-Qkm"/>
+                            <constraint firstItem="Usb-g0-MRT" firstAttribute="leading" secondItem="R4J-Nb-1o8" secondAttribute="leading" id="51L-3O-LJp"/>
+                            <constraint firstItem="lAl-4a-qaW" firstAttribute="leading" secondItem="R4J-Nb-1o8" secondAttribute="leading" id="BRp-k8-1B9"/>
+                            <constraint firstItem="mJP-lx-tuQ" firstAttribute="trailing" secondItem="R4J-Nb-1o8" secondAttribute="trailing" id="ELj-UD-gYt"/>
+                            <constraint firstItem="lAl-4a-qaW" firstAttribute="trailing" secondItem="R4J-Nb-1o8" secondAttribute="trailing" id="Eos-Kd-vrM"/>
+                            <constraint firstItem="lAl-4a-qaW" firstAttribute="top" secondItem="9AH-A3-rAK" secondAttribute="top" id="HxK-79-gtg"/>
+                            <constraint firstItem="mJP-lx-tuQ" firstAttribute="top" secondItem="lAl-4a-qaW" secondAttribute="bottom" id="MTT-qh-veF"/>
+                            <constraint firstAttribute="bottom" secondItem="Usb-g0-MRT" secondAttribute="bottom" id="VFX-Z9-gdo"/>
+                            <constraint firstItem="lAl-4a-qaW" firstAttribute="trailing" secondItem="R4J-Nb-1o8" secondAttribute="trailing" id="d92-Y6-bI8"/>
+                            <constraint firstItem="Usb-g0-MRT" firstAttribute="trailing" secondItem="R4J-Nb-1o8" secondAttribute="trailing" id="gno-gh-4Tv"/>
+                            <constraint firstItem="lAl-4a-qaW" firstAttribute="top" secondItem="9AH-A3-rAK" secondAttribute="top" id="hXN-1X-VPC"/>
+                            <constraint firstItem="lAl-4a-qaW" firstAttribute="leading" secondItem="R4J-Nb-1o8" secondAttribute="leading" id="jlG-q3-Dtt"/>
+                            <constraint firstItem="Usb-g0-MRT" firstAttribute="top" secondItem="mJP-lx-tuQ" secondAttribute="bottom" constant="8" symbolic="YES" id="ser-tw-Gxs"/>
+                            <constraint firstItem="mJP-lx-tuQ" firstAttribute="leading" secondItem="R4J-Nb-1o8" secondAttribute="leading" id="zc0-eq-UBr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="63d-BC-HRG"/>
+                    <navigationItem key="navigationItem" id="M9y-g9-GJ4">
+                        <barButtonItem key="backBarButtonItem" title=" " id="gQr-3O-cbd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="TextView" destination="mJP-lx-tuQ" id="moc-WL-Ny5"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gmc-BF-HgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gaa-0n-NtQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3096" y="-513"/>
+            <point key="canvasLocation" x="3096" y="-597"/>
         </scene>
     </scenes>
     <resources>

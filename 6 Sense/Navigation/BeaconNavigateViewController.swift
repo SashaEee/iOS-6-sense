@@ -61,7 +61,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
         locationManager.startRangingBeacons(in: beaconRegion)
     }
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        if beacons.count > 0 {
+        if beacons.count > 0 && beacons.first!.rssi != 0 {
             updateDistance(beacons.first!.proximity)
             let macString = generateMac(major: Int32(beacons.first!.major.uint32Value), minor: Int32(beacons.first!.minor.uint32Value)) //генерируем Mac-адрес метки
             updateKnown(Str: macString) //проверяем новая ли метка отсканирована

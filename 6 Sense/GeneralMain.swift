@@ -15,12 +15,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var aboutUsButton: UIButton!
     
     override func viewDidLoad() {
+        stopSpeaking()
         shadowButton()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    func shadowButton(){
+
+    func shadowButton(){ // функция добавления теней кнопки 
         instrButton.addShadow()
         navigationButton.addShadow()
         settingsButton.addShadow()
@@ -37,5 +39,3 @@ extension UIView {
       self.layer.shadowOpacity = 0.5
   }
 }
-
-

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 var infoButtonInLoc: Int = 0
 
-class LocationInLocView: UIViewController {
+class LocationInLocView: UIViewController { // страница локация внутри локаций
     
     
     @IBOutlet weak var buttonsStack: UIStackView!
@@ -22,8 +22,8 @@ class LocationInLocView: UIViewController {
 
     override func viewDidLoad() {
         addButton()
-        buttonsStack.spacing = 30        
-        let insets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        buttonsStack.spacing = 10
+        let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         scrollView.contentInset = insets
         scrollView.scrollIndicatorInsets = insets
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class LocationInLocView: UIViewController {
         
     } //End ViewDidload
     
-    @IBAction func buttonAction(sender: UIButton!) {
+    @IBAction func buttonAction(sender: UIButton!) { // нажата кнопо4ка
         print("Button tapped with tag \(sender.tag)")
         endBeaconText = (sender.titleLabel?.text)!
         infoButtonInLoc = sender.tag
@@ -67,10 +67,10 @@ class LocationInLocView: UIViewController {
                 button.contentHorizontalAlignment = .center
                 button.contentVerticalAlignment = .center
                 button.titleLabel?.font = UIFont(name: "Fira Code Regular", size: 61)
-                button.layer.cornerRadius = 5
+//                button.layer.cornerRadius = 5
                 button.titleLabel?.numberOfLines = 2
                 button.titleLabel?.textAlignment = .center
-                button.heightAnchor.constraint(equalToConstant: 135).isActive = true
+                button.heightAnchor.constraint(equalToConstant: 150).isActive = true
 //                button.frame.size.height = 200.0
 //                button.frame.size.width = 200.0
                 button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -83,7 +83,7 @@ class LocationInLocView: UIViewController {
         }
 
     }
-    @IBAction func exit(_ sender: Any) {
+    @IBAction func exit(_ sender: Any) { //выходим
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(identifier: "menu")
         nextVC.modalPresentationStyle = .fullScreen

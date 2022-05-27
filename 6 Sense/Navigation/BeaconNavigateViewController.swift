@@ -14,7 +14,7 @@ import SwiftyJSON
 var endBeaconText: String = ""
 
 
-class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate {
+class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate { //страница построения маршрута
     @IBOutlet weak var buttonWithEndBeacon: UIButton!
     var graph = Graph<String>()
     var locationManager: CLLocationManager!
@@ -35,7 +35,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
         locationManager.requestAlwaysAuthorization()
         GetAllRoute()
     }
-    func printInfo(){
+    func printInfo(){ // выводим данные о метке
         let nodesJSON = BeaconName(fromJson: JSON1![infoButtonLoc])
         let node = nodesJSON.nodes[infoButtonInLoc]
         endBeacon = String(node.id)
@@ -54,29 +54,38 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
             }
         }
     }
-    func startScanning() {
-        let uuid = UUID(uuidString: "01122334-4556-6778-899A-ABBCCDDEEFF0")! //a196c876-de8c-4c47-ab5a-d7afd5ae7127 //01122334-4556-6778-899A-ABBCCDDEEFF0 //00000000-0000-0000-0000-000000000000
+    func startScanning() { //сканируем метки
+        let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //a196c876-de8c-4c47-ab5a-d7afd5ae7127 //01122334-4556-6778-899A-ABBCCDDEEFF0 //00000000-0000-0000-0000-000000000000
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(in: beaconRegion)
     }
-    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        if beacons.count > 0 && beacons.first!.rssi != 0 {
-            updateDistance(beacons.first!.proximity)
-            let macString = generateMac(major: Int32(beacons.first!.major.uint32Value), minor: Int32(beacons.first!.minor.uint32Value)) //генерируем Mac-адрес метки
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) { //определяем ближайщую метку
+
+        var closestBeacon: CLBeacon? = nil
+        for beacon in beacons {
+          if closestBeacon == nil || (beacon.rssi < 0 && beacon.rssi > closestBeacon!.rssi) {
+              if beacon.rssi != 0 {
+                  closestBeacon = beacon as? CLBeacon
+              }
+          }
+        }
+        print("Ближайшая новая \(closestBeacon)")
+
+        if ((closestBeacon != nil) && ((closestBeacon!.proximity == .immediate) || (closestBeacon!.proximity == .near))){
+            updateDistance(closestBeacon!.proximity)
+            let macString = generateMac(major: Int32(closestBeacon!.major.uint32Value), minor: Int32(closestBeacon!.minor.uint32Value)) //генерируем Mac-адрес метки
             updateKnown(Str: macString) //проверяем новая ли метка отсканирована
             if known == 0 {
 //                GetData(mac: macString)
                 FindBeacon(mac: macString)
                 print(macString)
             }
-            print(beacons)
-            print("Ближайшая \(beacons.first!)")
         } else {
             updateDistance(.unknown)
         }
     }
-    func updateKnown(Str: String){
+    func updateKnown(Str: String){ //обновляем познания
             if (Str != last){
                 last = Str
                 known = 0
@@ -86,7 +95,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
             }
     }
     
-        func generateMac(major: Int32, minor: Int32) -> String{
+        func generateMac(major: Int32, minor: Int32) -> String{ //генерируем мак адрес
             print(major)
             print(minor)
             var a = Array(String(major, radix: 16).uppercased())
@@ -106,7 +115,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
             let Str = "\(a[0])" + "\(a[1])" + ":" + "\(a[2])" + "\(a[3])" + ":" + "\(b[0])" + "\(b[1])" + ":" + "\(b[2])" + "\(b[3])"
             return Str
         }
-            func GetData(mac: String){
+            func GetData(mac: String){ //находим метку на сервере
                 let url = "https://feel.sfedu.ru/hestia/api/location/?format=json" + mac //"35:7C:9A:35"
                 AF.request(url, method: .get).responseData { [self] response in
                     switch response.result {
@@ -140,26 +149,26 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
         }
     }
 
-    func updateDistance(_ distance: CLProximity) {
-        UIView.animate(withDuration: 0.8) {
-            switch distance {
-            case .unknown:
-                self.view.backgroundColor = UIColor.gray
-
-            case .far:
-                self.view.backgroundColor = UIColor.blue
-
-            case .near:
-                self.view.backgroundColor = UIColor.orange
-
-            case .immediate:
-                self.view.backgroundColor = UIColor.red
-            @unknown default:
-                self.view.backgroundColor = UIColor.gray
-            }
-        }
+    func updateDistance(_ distance: CLProximity) { // обновляем дистанцию до метки))))))))))))))
+//        UIView.animate(withDuration: 0.8) {
+//            switch distance {
+//            case .unknown:
+//                self.view.backgroundColor = UIColor.gray
+//
+//            case .far:
+//                self.view.backgroundColor = UIColor.blue
+//
+//            case .near:
+//                self.view.backgroundColor = UIColor.orange
+//
+//            case .immediate:
+//                self.view.backgroundColor = UIColor.red
+//            @unknown default:
+//                self.view.backgroundColor = UIColor.gray
+//            }
+//        }
     }
-    func GetAllRoute(){
+    func GetAllRoute(){ //функция получения маршшрута
         let nodesJSON = BeaconName(fromJson: JSON1![infoButtonLoc])
         for index in nodesJSON.nodes!.startIndex...nodesJSON.nodes!.endIndex-1{
             let node = nodesJSON.nodes![index]
@@ -175,7 +184,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
             print(wrong.isExpected) // true
         }
     }
-    func FindRoad(){
+    func FindRoad(){ // ищем кратчайший маршрут
         marchrut = []
         var shortestPathResult = graph.shortestPath(from: startBeacon, to: endBeacon)
         shortestPathResult.onExpected { path in
@@ -187,7 +196,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
         FindTextRoad()
     }
     
-    func FindTextRoad(){
+    func FindTextRoad(){ // находим что будет проговариваться
         if startBeacon != endBeacon{
             let nodesJSON = BeaconName(fromJson: JSON1![infoButtonLoc])
             for index in nodesJSON.edges!.startIndex...nodesJSON.edges!.endIndex-1{
@@ -195,11 +204,48 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
                 if (marchrut[0] == edge.start) && (marchrut[1] == edge.stop){
                     speak(phrase: edge.text)
                     print(edge.text)
+                    let a = FindPhantom()
                 }
             }
         } else {  speak(phrase: "Вы дошли до конечной точки!")  }
     }
-    @IBAction func exit(_ sender: Any) {
+    func FindPhantom() -> Bool{
+        var phantomIs = 0
+        var i = 1
+        var k = 2
+        let nodesJSON = BeaconName(fromJson: JSON1![infoButtonLoc])
+        if marchrut.count > 2{
+            while (k <= marchrut.endIndex - 1){
+                for index in nodesJSON.nodes!.startIndex...nodesJSON.nodes!.endIndex-1{
+                    if(k <= marchrut.endIndex - 1){
+                        if (nodesJSON.nodes[index].id == marchrut[k]){
+                            if  (nodesJSON.nodes[index].beacon.mac == "PHANTOM#"){
+                                FindTextRoadCon(st: i, en: k)
+                                i += 1
+                                k += 1
+                            } else {
+                                return false
+                            }
+                        }
+                    } else {  break  }
+                }
+            }
+        }
+        return true
+    }
+    func FindTextRoadCon(st: Int, en: Int){
+        if startBeacon != endBeacon{
+            let nodesJSON = BeaconName(fromJson: JSON1![infoButtonLoc])
+            for index in nodesJSON.edges!.startIndex...nodesJSON.edges!.endIndex-1{
+                let edge = nodesJSON.edges[index]
+                if (marchrut[st] == edge.start) && (marchrut[en] == edge.stop){
+                    speakPhantom(phrase: edge.text)
+                    print(edge.text)
+                }
+            }
+        } else {  speak(phrase: "Вы дошли до конечной точки!")  }
+    }
+    @IBAction func exit(_ sender: Any) { //выходим
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(identifier: "menu")
         nextVC.modalPresentationStyle = .fullScreen

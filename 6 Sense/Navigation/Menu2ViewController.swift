@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Menu2ViewController: UIViewController {
+class Menu2ViewController: UIViewController { // станица раздела навигации
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
     override func viewDidLoad() {
@@ -16,11 +16,11 @@ class Menu2ViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    func designButton(){
+    func designButton(){ //добавление теней
         locationButton.addShadow()
         finishButton.addShadow()
     }
-    @IBAction func exit(_ sender: Any) {
+    @IBAction func exit(_ sender: Any) { //функция выхода
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(identifier: "menu")
         nextVC.modalPresentationStyle = .fullScreen

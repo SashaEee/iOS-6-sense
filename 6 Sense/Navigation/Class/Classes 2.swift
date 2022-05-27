@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-class BeaconClass : NSObject, NSCoding{
+class BeaconClass : NSObject, NSCoding{ //хранение меток
 
     var id : Int!
     var location : Int!

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-class BeaconName : NSObject, NSCoding{
+class BeaconName : NSObject, NSCoding{ // класс с характеристиками маршрута
 
     var azimuth : AnyObject!
     var edges : [EdgeClass]!
@@ -133,7 +133,7 @@ class BeaconName : NSObject, NSCoding{
 
 
 
-class NodeClass : NSObject, NSCoding{
+class NodeClass : NSObject, NSCoding{ // класс с основной ифной о метках
 
     var beacon : BeaconInfo!
     var coordinateX : Int!
@@ -268,7 +268,7 @@ class NodeClass : NSObject, NSCoding{
 
 }
 
-class EdgeClass : NSObject, NSCoding{
+class EdgeClass : NSObject, NSCoding{ // класс с маршрутом
 
     var start : Int!
     var stop : Int!
@@ -345,7 +345,7 @@ class EdgeClass : NSObject, NSCoding{
     }
 
 }
-class BeaconInfo : NSObject, NSCoding{
+class BeaconInfo : NSObject, NSCoding{ // информация о метке
 
     var id : Int!
     var mac : String!

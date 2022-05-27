@@ -15,7 +15,7 @@ var JSON1: JSON?
 var infoButtonLoc: Int = 0
 
 
-class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
+class DynamicStackViewController: UIViewController, CLLocationManagerDelegate { //страница с локациями
     
     @IBOutlet weak var buttonsStack: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -28,8 +28,8 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         addButton()
-        buttonsStack.spacing = 30
-        let insets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        buttonsStack.spacing = 10
+        let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         scrollView.contentInset = insets
         scrollView.scrollIndicatorInsets = insets
         super.viewDidLoad()
@@ -37,12 +37,12 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         
     } //End ViewDidload
     
-    @IBAction func buttonAction(sender: UIButton!) {
+    @IBAction func buttonAction(sender: UIButton!) { // нажата одна из кнопок
         infoButtonLoc = sender.tag
         openView(id: "LocationView")
         print("Button tapped with tag \(sender.tag)")
     }
-    func openView(id: String){
+    func openView(id: String){ // переход на некст страницу
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(identifier: id)
         self.navigationController?.show(nextVC, sender: Any?.self)
@@ -51,11 +51,18 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
     func addButton(){
         for index in JSON1!.array!.startIndex...JSON1!.array!.endIndex - 1 {
             let beaconJSON = BeaconName(fromJson: JSON1![index])
-            if beaconJSON.text as! String == "" {
+//            print(beaconJSON.text)
             myButtonsArray.append("\(beaconJSON.name ?? "")")
-            } else {
-                myButtonsArray.append("nil")
-            }
+                print(beaconJSON.name)
+
+//            if beaconJSON.text as! String != "" {
+//            myButtonsArray.append("\(beaconJSON.name ?? "")")
+////                print(beaconJSON.name)
+//            } else {
+//                myButtonsArray.append("nil")
+//                print(beaconJSON.name)
+//
+//            }
         }
         for (index,element) in myButtonsArray.enumerated() {
             if element != "nil"{
@@ -70,10 +77,10 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
                 button.contentHorizontalAlignment = .center
                 button.contentVerticalAlignment = .center
                 button.titleLabel?.font = UIFont(name: "Fira Code Regular", size: 61)
-                button.layer.cornerRadius = 5
+//                button.layer.cornerRadius = 5
                 button.titleLabel?.numberOfLines = 2
                 button.titleLabel?.textAlignment = .center
-                button.heightAnchor.constraint(equalToConstant: 135).isActive = true
+                button.heightAnchor.constraint(equalToConstant: 150).isActive = true
 //                button.frame.size.height = 200.0
 //                button.frame.size.width = 200.0
                 button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -86,7 +93,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         }
 
     }
-    @IBAction func exit(_ sender: Any) {
+    @IBAction func exit(_ sender: Any) { //выходим
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(identifier: "menu")
         nextVC.modalPresentationStyle = .fullScreen
@@ -94,7 +101,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         self.present(nextVC, animated: true, completion: nil)
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorized {
+        if status == .authorized { // вызываем геолокацию
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
                     startScanning()
@@ -102,14 +109,14 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-    func startScanning() {
-        let uuid = UUID(uuidString: "01122334-4556-6778-899A-ABBCCDDEEFF0")! //01122334-4556-6778-899A-ABBCCDDEEFF0
+    func startScanning() { //сканируем метки
+        let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //01122334-4556-6778-899A-ABBCCDDEEFF0
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(in: beaconRegion)
     }
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        let uuid = UUID(uuidString: "01122334-4556-6778-899A-ABBCCDDEEFF0")! //01122334-4556-6778-899A-ABBCCDDEEFF0
+        let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //01122334-4556-6778-899A-ABBCCDDEEFF0
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
         if beacons.count > 0 {
             let macString = generateMac(major: Int32(beacons[0].major.uint32Value), minor: Int32(beacons[0].minor.uint32Value)) //генерируем Mac-адрес метки
@@ -124,7 +131,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func SearchInJSON(macLoc: String) -> String {
+    func SearchInJSON(macLoc: String) -> String { // поиск в JSON
         var namePlace = ""
         for index in JSON1!.array!.startIndex...JSON1!.array!.endIndex - 1 {
             let beaconJSON = BeaconName(fromJson: JSON1![index])
@@ -135,7 +142,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
         }
         return namePlace
     }
-    func SearchButton(namePlace: String){
+    func SearchButton(namePlace: String){ // поиск кнопки
         for index in myButtonsArray.startIndex...myButtonsArray.endIndex - 1{
             if myButtonsArray[index] == namePlace{
                 infoButtonLoc = index
@@ -146,7 +153,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     
-        func generateMac(major: Int32, minor: Int32) -> String{
+        func generateMac(major: Int32, minor: Int32) -> String{ // генерируем мак адрес
             print(major)
             print(minor)
             var a = Array(String(major, radix: 16).uppercased())

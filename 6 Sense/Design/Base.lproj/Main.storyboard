@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20036.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uOC-Lq-zEH">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uOC-Lq-zEH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,14 +19,14 @@
             <objects>
                 <viewController title="Главное меню" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FtG-b7-oOd" customClass="MainViewController" customModule="__Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T8L-6H-wCY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wc0-mr-G6Q">
-                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <rect key="frame" x="0.0" y="45" width="414" height="817"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7f-ia-HIv">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="162.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="215.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="dNF-EG-2oy"/>
                                         </constraints>
@@ -49,7 +50,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-DB-Eob">
-                                        <rect key="frame" x="0.0" y="172.5" width="375" height="143"/>
+                                        <rect key="frame" x="0.0" y="225.5" width="414" height="190.5"/>
                                         <size key="titleShadowOffset" width="0.0" height="10"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -71,7 +72,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzQ-G1-J6b">
-                                        <rect key="frame" x="0.0" y="325.5" width="375" height="143.5"/>
+                                        <rect key="frame" x="0.0" y="426" width="414" height="190.5"/>
                                         <size key="titleShadowOffset" width="0.0" height="10"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -93,7 +94,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8u-y2-Nij">
-                                        <rect key="frame" x="0.0" y="479" width="375" height="143"/>
+                                        <rect key="frame" x="0.0" y="626.5" width="414" height="190.5"/>
                                         <size key="titleShadowOffset" width="0.0" height="10"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -149,7 +150,7 @@
                 <navigationController storyboardIdentifier="menu" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uOC-Lq-zEH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uLc-bT-cP1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -166,11 +167,11 @@
             <objects>
                 <viewController title="Главное меню" id="AIS-w9-HwY" customClass="Menu2ViewController" customModule="__Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="adF-T2-Nln">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Mc-uP-LIS">
-                                <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="T65-xV-2JB"/>
                                 </constraints>
@@ -191,7 +192,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TY-5x-5y0">
-                                <rect key="frame" x="0.0" y="161" width="375" height="150.5"/>
+                                <rect key="frame" x="0.0" y="205" width="414" height="150.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="130" id="CXY-Es-74d"/>
                                 </constraints>
@@ -215,7 +216,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZeN-KC-nkW">
-                                <rect key="frame" x="0.0" y="507" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="702" width="414" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="2de-lT-8U6"/>
                                 </constraints>
@@ -267,14 +268,14 @@
             <objects>
                 <viewController title="Пункт назначения" id="LV1-zr-lsw" customClass="DynamicStackViewController" customModule="__Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VtI-8I-Icb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-wu-XWD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gU2-Qc-PYt">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="630"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="630"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -312,11 +313,11 @@
             <objects>
                 <viewController title="Главное меню" id="HYq-0C-oww" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="thy-tZ-qnX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoM-Da-1Ml">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="О НАС" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVn-PH-LkP">
                                         <rect key="frame" x="0.0" y="63" width="375" height="87"/>
@@ -332,7 +333,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-Of-QTi">
-                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
                                 <string key="text">Шестое чувство - это системанавигации внутри помещений для людей с ограниченными возможностями зрения.
  
 Проект создан командой Проектного офиса ИКТИБ:
@@ -381,30 +382,66 @@
             <objects>
                 <viewController title="Главное меню" id="Lsb-Er-c7g" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tZi-2N-TFT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfU-8T-sfb">
+                                <rect key="frame" x="24" y="157" width="366" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="4wM-Gw-lzE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" cornerRadius="0.0">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="СКОРОСТЬ РЕЧИ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="52" name="FiraCode-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="eM8-iN-xRD">
+                                <rect key="frame" x="22" y="417" width="370" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </slider>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HiZ-zK-O18"/>
-                        <color key="backgroundColor" red="0.85932228960000001" green="0.85932228960000001" blue="0.85932228960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eM8-iN-xRD" firstAttribute="top" secondItem="lfU-8T-sfb" secondAttribute="bottom" constant="130" id="9RU-Qs-ced"/>
+                            <constraint firstItem="HiZ-zK-O18" firstAttribute="trailing" secondItem="lfU-8T-sfb" secondAttribute="trailing" constant="24" id="BGo-Ab-Pak"/>
+                            <constraint firstItem="eM8-iN-xRD" firstAttribute="leading" secondItem="HiZ-zK-O18" secondAttribute="leading" constant="24" id="D2a-KV-dNz"/>
+                            <constraint firstItem="lfU-8T-sfb" firstAttribute="leading" secondItem="HiZ-zK-O18" secondAttribute="leading" constant="24" id="jp1-Db-oks"/>
+                            <constraint firstItem="HiZ-zK-O18" firstAttribute="trailing" secondItem="eM8-iN-xRD" secondAttribute="trailing" constant="24" id="m1L-s1-Uud"/>
+                            <constraint firstItem="eM8-iN-xRD" firstAttribute="centerX" secondItem="tZi-2N-TFT" secondAttribute="centerX" id="ts4-ik-ctp"/>
+                            <constraint firstItem="lfU-8T-sfb" firstAttribute="top" secondItem="HiZ-zK-O18" secondAttribute="top" constant="69" id="uKz-I0-hGH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZtP-Ib-dep"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBs-2q-OUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3096" y="808"/>
+            <point key="canvasLocation" x="3095.6521739130435" y="807.58928571428567"/>
         </scene>
         <!--Главное меню-->
         <scene sceneID="uaC-er-UbO">
             <objects>
                 <viewController title="Главное меню" id="K2d-HA-CgK" customClass="InstrViewController" customModule="__Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9AH-A3-rAK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAl-4a-qaW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИНСТРУКЦИЯ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8l-Cn-bCd">
-                                        <rect key="frame" x="0.0" y="63" width="375" height="87"/>
+                                        <rect key="frame" x="0.0" y="63" width="414" height="87"/>
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="64"/>
                                         <color key="textColor" red="1" green="1" blue="0.99999994039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -419,7 +456,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-V0-Pew">
-                                <rect key="frame" x="236" y="567" width="90" height="90"/>
+                                <rect key="frame" x="275" y="762" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="MC1-RZ-RbF"/>
                                     <constraint firstAttribute="height" constant="90" id="xIk-4j-zQb"/>
@@ -434,7 +471,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OG-16-Fbu">
-                                <rect key="frame" x="49" y="567" width="90" height="90"/>
+                                <rect key="frame" x="49" y="762" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="a5J-8q-HPz"/>
                                     <constraint firstAttribute="height" constant="90" id="qdp-IU-pZV"/>
@@ -449,7 +486,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJP-lx-tuQ">
-                                <rect key="frame" x="0.0" y="150" width="375" height="399"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="594"/>
                                 <string key="text">Первое сообщение из 6.При открытии приложения вы попадаете в главное меню, от сюда вы можете прослушать эту инструкцию, перейти к навигации или открыть настройки. 
 
 Второе сообщение из 6.Для первого использования системы на любом объекте необходимо соединение с интернет, для дальнейшего использования соединение необязательно.
@@ -505,14 +542,14 @@
             <objects>
                 <viewController storyboardIdentifier="LocationView" title="Пункт назначения" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FLt-gr-L1c" customClass="LocationInLocView" customModule="__Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kRK-Be-wxL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ppg-kE-qjn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aMZ-lx-aqo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="630"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="630"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -550,11 +587,11 @@
             <objects>
                 <viewController storyboardIdentifier="beaconNavigate" title="Пункт назначения" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3nb-3g-Ktd" customClass="BeaconNavigateViewController" customModule="__Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9EC-zq-qJt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcR-B5-PNb">
-                                <rect key="frame" x="0.0" y="15" width="375" height="174.5"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="174.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Llk-Xg-p59"/>
                                 </constraints>
@@ -574,13 +611,26 @@
                                     </attributedString>
                                 </buttonConfiguration>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" text="Информация о ближайших метках" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vdL-NT-tYg">
+                                <rect key="frame" x="0.0" y="272" width="414" height="246"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="246" id="9tW-fu-3rC"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="97H-2e-KNK"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XcR-B5-PNb" firstAttribute="trailing" secondItem="97H-2e-KNK" secondAttribute="trailing" id="BjI-mB-sU3"/>
+                            <constraint firstItem="vdL-NT-tYg" firstAttribute="top" secondItem="XcR-B5-PNb" secondAttribute="bottom" constant="38.5" id="IqB-TH-uVa"/>
                             <constraint firstItem="XcR-B5-PNb" firstAttribute="top" secondItem="97H-2e-KNK" secondAttribute="top" constant="15" id="ate-zB-In4"/>
                             <constraint firstItem="XcR-B5-PNb" firstAttribute="leading" secondItem="97H-2e-KNK" secondAttribute="leading" id="ioB-Pq-h07"/>
+                            <constraint firstAttribute="trailing" secondItem="vdL-NT-tYg" secondAttribute="trailing" id="r8K-Kc-cJt"/>
+                            <constraint firstItem="vdL-NT-tYg" firstAttribute="leading" secondItem="97H-2e-KNK" secondAttribute="leading" id="zef-Ye-ZY5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BS0-s4-j4P">
@@ -588,15 +638,22 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonWithEndBeacon" destination="XcR-B5-PNb" id="9JS-oH-Mmq"/>
+                        <outlet property="textView" destination="vdL-NT-tYg" id="F0p-gv-5Ul"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPW-hL-tEG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5412" y="138"/>
+            <point key="canvasLocation" x="5411.594202898551" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrowtriangle.left.fill" catalog="system" width="128" height="113"/>
         <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

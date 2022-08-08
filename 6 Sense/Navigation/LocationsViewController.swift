@@ -33,8 +33,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate { 
         scrollView.contentInset = insets
         scrollView.scrollIndicatorInsets = insets
         super.viewDidLoad()
-                
-        
+
     } //End ViewDidload
     
     @IBAction func buttonAction(sender: UIButton!) { // нажата одна из кнопок
@@ -101,7 +100,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate { 
         self.present(nextVC, animated: true, completion: nil)
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorized { // вызываем геолокацию
+        if (status == .authorized || status == .authorizedAlways || status == .authorizedWhenInUse) {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
                     startScanning()
@@ -109,6 +108,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate { 
             }
         }
     }
+
     func startScanning() { //сканируем метки
         let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //01122334-4556-6778-899A-ABBCCDDEEFF0
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
@@ -119,6 +119,7 @@ class DynamicStackViewController: UIViewController, CLLocationManagerDelegate { 
         let uuid = UUID(uuidString: "00000000-0000-0000-0000-000000000000")! //01122334-4556-6778-899A-ABBCCDDEEFF0
         let beaconRegion = CLBeaconRegion(uuid: uuid, identifier: "")
         if beacons.count > 0 {
+            print(beacons)
             let macString = generateMac(major: Int32(beacons[0].major.uint32Value), minor: Int32(beacons[0].minor.uint32Value)) //генерируем Mac-адрес метки
             let namePlace = SearchInJSON(macLoc: macString)
             print(namePlace)

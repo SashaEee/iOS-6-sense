@@ -16,6 +16,7 @@ var endBeaconText: String = ""
 
 class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate { //страница построения маршрута
     @IBOutlet weak var buttonWithEndBeacon: UIButton!
+    @IBOutlet weak var textView: UITextView!
     var graph = Graph<String>()
     var locationManager: CLLocationManager!
     var known: Int = 0
@@ -46,7 +47,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
         print("Номер метки \(endBeacon)")
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
+        if (status == .authorized || status == .authorizedAlways || status == .authorizedWhenInUse) {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
                     startScanning()
@@ -61,7 +62,7 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
         locationManager.startRangingBeacons(in: beaconRegion)
     }
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) { //определяем ближайщую метку
-
+        textView.text = beacons.description
         var closestBeacon: CLBeacon? = nil
         for beacon in beacons {
           if closestBeacon == nil || (beacon.rssi < 0 && beacon.rssi > closestBeacon!.rssi) {
@@ -71,8 +72,8 @@ class BeaconNavigateViewController: UIViewController, CLLocationManagerDelegate 
           }
         }
         print("Ближайшая новая \(closestBeacon)")
-
-        if ((closestBeacon != nil) && ((closestBeacon!.proximity == .immediate) || (closestBeacon!.proximity == .near))){
+        
+        if ((closestBeacon != nil) && ((closestBeacon!.proximity == .immediate) || (closestBeacon!.proximity == .near) || (closestBeacon!.proximity == .far))){
             updateDistance(closestBeacon!.proximity)
             let macString = generateMac(major: Int32(closestBeacon!.major.uint32Value), minor: Int32(closestBeacon!.minor.uint32Value)) //генерируем Mac-адрес метки
             updateKnown(Str: macString) //проверяем новая ли метка отсканирована
